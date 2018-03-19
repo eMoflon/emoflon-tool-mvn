@@ -11,7 +11,7 @@ Use the following snippet in your *pom.xml*:
 <repositories>
     <repository>
         <id>emoflon-mvn-releases</id>
-        <url>https://github.com/eMoflon/emoflon-tool-mvn/master/releases</url>
+        <url>https://github.com/eMoflon/emoflon-tool-mvn/raw/master/releases</url>
     </repository>
 </repositories>
 ```
