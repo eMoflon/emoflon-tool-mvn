@@ -7,6 +7,8 @@
 # (ii) the artifact ID is equal to the bundle name
 # (iii)the aritfact version is equal to the bundle version
 #
+# Only bundles whose ID/name occurs in the list 'bundlesToInstall' will be deployed.
+#
 # Author: Roland Kluge
 # Date: 2018-03-19
 #
@@ -17,9 +19,18 @@
 
 DEFAULT_GROUP_ID=moflon
 
+if [ -z "$1" ];
+then
+  echo "Usage: $0 [comma-seperated-list-of-update-site-paths]"
+  echo "Example: $0 \"../../emoflon-tool/org.moflon.deployment.updatesite/,../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite\""
+  exit 1
+fi
+
 # Relative paths to the update sites that shall be searched for bundles
+#updateSiteLocations=(../../emoflon-tool/org.moflon.deployment.updatesite/ ../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite)
 declare -a updateSiteLocations
-updateSiteLocations=(../../emoflon-tool/org.moflon.deployment.updatesite/ ../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite)
+IFS=',' read -r -a updateSiteLocations <<< "$1"
+
 
 # Target Maven repository where jars shall be installed
 repositoryLocation=../releases
@@ -50,7 +61,7 @@ for updateSiteLocation in ${updateSiteLocations[@]}; do
     searchResult=$(echo $bundlesToInstall | grep "$bundleName" )
     [ "$searchResult" == "" ] && continue
     
-    groupId=DEFAULT_GROUP_ID
+    groupId=$DEFAULT_GROUP_ID
     artifactId=$bundleName
     version=${fileName##*_}
     version=${version%.jar}

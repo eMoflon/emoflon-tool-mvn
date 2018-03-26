@@ -4,7 +4,7 @@ Maven repository for eMoflon Tool
 This is a Maven repository for providing selected eMoflon artifacts.
 If you need additional artifacts, please contact us via the issue tracker or contact AT emoflon DOT org.
 
-### How to use it
+### How to use obtain eMoflon Maven artifacts (for eMoflon users)
 
 Use the following snippet in your *pom.xml*:
 ```
@@ -15,6 +15,18 @@ Use the following snippet in your *pom.xml*:
     </repository>
 </repositories>
 ```
+
+### How to use deploy eMoflon Maven artifacts (for eMoflon developers)
+
+The script in *scripts/deployLocalFromUpdateSite.bash* scans a list of update site locations for the desired bundles.
+
+Basic usage:
+```
+cd scripts
+ ./deployLocalFromUpdateSite.bash "../../emoflon-tool/org.moflon.deployment.updatesite/,../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite"
+```
+
+See the script documentation for more details.
 
 ## Credits
 Thanks to Chas Emerick for the nice tutorial: https://cemerick.com/2010/08/24/hosting-maven-repos-on-github/
