@@ -1,7 +1,6 @@
-# emoflon-tool-mvn
-Maven repository for eMoflon Tool
+#Maven repository for eMoflon::TIE
 
-This is a Maven repository for providing selected eMoflon artifacts.
+This is a Maven repository for providing selected eMoflon::TIE artifacts.
 If you need additional artifacts, please contact us via the issue tracker or contact AT emoflon DOT org.
 
 ### How to use obtain eMoflon Maven artifacts (for eMoflon users)
@@ -23,10 +22,10 @@ The script in *scripts/deployLocalFromUpdateSite.bash* scans a list of update si
 Basic usage:
 ```
 cd scripts
- ./deployLocalFromUpdateSite.bash "../../emoflon-tool/org.moflon.deployment.updatesite/,../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite"
+bash ./deployLocalFromUpdateSite.bash "../../emoflon-tool/org.moflon.deployment.updatesite/,../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite"
 ```
 
-See the script documentation for more details.
+See the documentation inside the script for more details.
 
 ## Credits
 Thanks to Chas Emerick for the nice tutorial: https://cemerick.com/2010/08/24/hosting-maven-repos-on-github/

@@ -22,7 +22,10 @@ DEFAULT_GROUP_ID=moflon
 if [ -z "$1" ];
 then
   echo "Usage: $0 [comma-seperated-list-of-update-site-paths]"
-  echo "Example: $0 \"../../emoflon-tool/org.moflon.deployment.updatesite/,../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite\""
+  echo "Example 1 (if you have checked out the eMoflon::TIE and eMoflon::Core development projects side-by-side with this repository):"
+  echo "$0 \"../../emoflon-tool/org.moflon.deployment.updatesite/,../../../../MoflonCoreDev/git/emoflon-core-updatesite/stable/updatesite\""
+  echo "Example 2 (if you have checked out eMoflon.github.io side-by-side with this repository):"
+  echo "$0 \"../../eMoflon.github.io/eclipse-plugin/beta/updatesite\""  
   exit 1
 fi
 
@@ -82,4 +85,5 @@ for updateSiteLocation in ${updateSiteLocations[@]}; do
   done
 done
 
-echo "Done. Do not forget to push."
+echo "Done."
+echo "Do not forget to commit and push this repository."
